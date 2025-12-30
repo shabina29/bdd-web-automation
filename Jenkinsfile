@@ -24,23 +24,12 @@ pipeline {
         }
     }
 
- post {
+post {
     always {
-        echo 'Pipeline execution completed'
-
-        // Publish TestNG results
-        junit 'target/surefire-reports/*.xml'
-
-        // Archive Cucumber HTML report
-        archiveArtifacts artifacts: 'target/cucumber-reports/**', fingerprint: true
-    }
-
-    success {
-        echo 'BDD automation pipeline SUCCESS'
-    }
-
-    failure {
-        echo 'BDD automation pipeline FAILED'
+        cucumber(
+            buildStatus: 'UNSTABLE',
+            fileIncludePattern: '**/cucumber.json'
+        )
     }
 }
 
