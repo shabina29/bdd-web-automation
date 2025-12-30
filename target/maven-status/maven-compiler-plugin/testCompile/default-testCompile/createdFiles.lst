@@ -1,1 +1,3 @@
+com\framework\steps\CheckoutSteps.class
+com\framework\steps\SauceDemoSteps.class
 com\framework\runners\TestRunner.class

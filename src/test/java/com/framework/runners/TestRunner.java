@@ -9,13 +9,11 @@ import io.cucumber.testng.CucumberOptions;
                 "com.framework.steps",
                 "com.framework.base"
         },
-        plugin = {
-                "pretty",
-                "html:target/cucumber-report.html",
-                "json:target/cucumber.json"
-        },
-        monochrome = true,
-        tags = "@E2E"   // 🔥 IMPORTANT: Run ONLY E2E scenarios
+        plugin = { "pretty" },
+        monochrome = true
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 }
+
+
+

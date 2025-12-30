@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                    <span class="method-stats">4 methods, 3 failed,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -101,6 +101,16 @@
                       <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
                     </span>
                     <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.framework.runners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User should see error when checkout details are missing&quot;, &quot;SauceDemo Checkout Validation&quot;)">runScenario("User should see error when checkout details are missing", "SauceDemo Checkout Validation")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.framework.runners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User should see error when checkout details are missing&quot;, &quot;SauceDemo Checkout Validation&quot;)">runScenario("User should see error when checkout details are missing", "SauceDemo Checkout Validation")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Surefire_suite" title="com.framework.runners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User should be able to complete checkout successfully&quot;, &quot;SauceDemo Checkout Flow&quot;)">runScenario("User should be able to complete checkout successfully", "SauceDemo Checkout Flow")</a> <!-- method navigator-link -->
@@ -117,12 +127,7 @@
                     <div class="method-list-content passed suite-Surefire_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="com.framework.runners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Valid user should login successfully&quot;, &quot;SauceDemo Login&quot;)">runScenario("Valid user should login successfully", "SauceDemo Login")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="com.framework.runners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Invalid user should see the error message&quot;, &quot;SauceDemo Login&quot;)">runScenario("Invalid user should see the error message", "SauceDemo Login")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.framework.runners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Simple smoke scenario&quot;, &quot;Smoke Check&quot;)">runScenario("Simple smoke scenario", "Smoke Check")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Surefire_suite -->
@@ -145,39 +150,74 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="runScenario(&quot;User should see error when checkout details are missing&quot;, &quot;SauceDemo Checkout Validation&quot;)">
+                  </a> <!-- runScenario("User should see error when checkout details are missing", "SauceDemo Checkout Validation") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("User should see error when checkout details are missing","SauceDemo Checkout Validation")</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.id: checkout (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.17&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51016}, goog:processID: 15420, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51016/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: af6db83693238be129dd797f50916be0
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.action.ActionUtil.waitForClickable(ActionUtil.java:30)
+	at com.framework.action.ActionUtil.click(ActionUtil.java:42)
+	at com.framework.pages.CartPage.clickCheckout(CartPage.java:19)
+	at com.framework.steps.CheckoutSteps.user_proceeds_to_checkout(CheckoutSteps.java:37)
+	at ✽.user proceeds to checkout(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoCheckoutValidation.feature:11)
+
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;User should see error when checkout details are missing&quot;, &quot;SauceDemo Checkout Validation&quot;)">
+                  </a> <!-- runScenario("User should see error when checkout details are missing", "SauceDemo Checkout Validation") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("User should see error when checkout details are missing","SauceDemo Checkout Validation")</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.id: checkout (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.17&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63828}, goog:processID: 11576, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63828/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c638cfdadd68690e38d6aa2044e0bb4f
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.action.ActionUtil.waitForClickable(ActionUtil.java:30)
+	at com.framework.action.ActionUtil.click(ActionUtil.java:42)
+	at com.framework.pages.CartPage.clickCheckout(CartPage.java:19)
+	at com.framework.steps.CheckoutSteps.user_proceeds_to_checkout(CheckoutSteps.java:37)
+	at ✽.user proceeds to checkout(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoLogin.feature:11)
+
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="runScenario(&quot;User should be able to complete checkout successfully&quot;, &quot;SauceDemo Checkout Flow&quot;)">
                   </a> <!-- runScenario("User should be able to complete checkout successfully", "SauceDemo Checkout Flow") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("User should be able to complete checkout successfully","SauceDemo Checkout Flow")</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=143.0.7499.169)
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.id: checkout (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.17&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c6830af2e31a468baf27aa5dd6bbc577, findElement {value=cart_item, using=class name}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.169, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60260}, goog:processID: 8728, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60260/devtoo..., se:cdpVersion: 143.0.7499.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c6830af2e31a468baf27aa5dd6bbc577
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at com.framework.action.ActionUtil.waitForVisible(ActionUtil.java:41)
-	at com.framework.action.ActionUtil.isDisplayed(ActionUtil.java:101)
-	at com.framework.pages.CartPage.isProductPresentInCart(CartPage.java:23)
-	at com.framework.steps.CheckoutSteps.user_navigates_to_cart(CheckoutSteps.java:25)
-	at ✽.user navigates to cart(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoCheckout.feature:10)
-... Removed 5 stack frames
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61910}, goog:processID: 11480, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61910/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 44b97850c71ed2888ee8570083a95601
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.action.ActionUtil.waitForClickable(ActionUtil.java:30)
+	at com.framework.action.ActionUtil.click(ActionUtil.java:42)
+	at com.framework.pages.CartPage.clickCheckout(CartPage.java:19)
+	at com.framework.steps.CheckoutSteps.user_proceeds_to_checkout(CheckoutSteps.java:37)
+	at ✽.user proceeds to checkout(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoCheckout.feature:11)
+
 </div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
@@ -193,20 +233,10 @@ Session ID: c6830af2e31a468baf27aa5dd6bbc577
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Valid user should login successfully&quot;, &quot;SauceDemo Login&quot;)">
-                  </a> <!-- runScenario("Valid user should login successfully", "SauceDemo Login") -->
+                  <a name="runScenario(&quot;Simple smoke scenario&quot;, &quot;Smoke Check&quot;)">
+                  </a> <!-- runScenario("Simple smoke scenario", "Smoke Check") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Valid user should login successfully","SauceDemo Login")</span>
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Invalid user should see the error message&quot;, &quot;SauceDemo Login&quot;)">
-                  </a> <!-- runScenario("Invalid user should see the error message", "SauceDemo Login") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Invalid user should see the error message","SauceDemo Login")</span>
+                  <span class="parameters">("Simple smoke scenario","Smoke Check")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
@@ -272,24 +302,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.framework.runners.TestRunner')
-data.setCell(0, 3, 13857);
+data.setCell(0, 3, 14295);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'com.framework.runners.TestRunner')
-data.setCell(1, 3, 5691);
+data.setCell(1, 3, 12548);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'runScenario')
 data.setCell(2, 2, 'com.framework.runners.TestRunner')
-data.setCell(2, 3, 5681);
+data.setCell(2, 3, 12461);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'runScenario')
+data.setCell(3, 2, 'com.framework.runners.TestRunner')
+data.setCell(3, 3, 1433);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 25 seconds</span>
+              <span class="suite-total-time">Total running time: 40 seconds</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -317,26 +351,34 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.framework.runners.TestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@3918c187)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@141d3d43)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
-              <div class="test-method">
-                <span class="method-name">runScenario("Valid user should login successfully", "SauceDemo Login")</span>
-                <span class="method-start">481 ms</span>
-              </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">runScenario("User should be able to complete checkout successfully", "SauceDemo Checkout Flow")</span>
-                <span class="method-start">481 ms</span>
+                <span class="method-start">171 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Invalid user should see the error message", "SauceDemo Login")</span>
-                <span class="method-start">481 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("User should see error when checkout details are missing", "SauceDemo Checkout Validation")</span>
+                <span class="method-start">14470 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("User should see error when checkout details are missing", "SauceDemo Checkout Validation")</span>
+                <span class="method-start">27019 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Simple smoke scenario", "Smoke Check")</span>
+                <span class="method-start">39482 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">14342 ms</span>
+                <span class="method-start">40917 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -1,8 +1,12 @@
-com\framework\action\ActionUtil.class
 com\framework\manager\DriverManager.class
+com\framework\pages\LoginPage.class
+com\framework\pages\ProductsPage.class
 com\framework\utils\ExtentManager.class
 com\framework\utils\ExtentTestManager.class
+com\framework\action\ActionUtil.class
+com\framework\pages\CheckoutPage.class
 com\framework\utils\ConfigReader.class
 com\framework\utils\WaitUtils.class
 com\framework\base\Hooks.class
 com\framework\utils\ScreenshotUtil.class
+com\framework\pages\CartPage.class

@@ -8,7 +8,12 @@ public class LoginPage {
     private By username = By.id("user-name");
     private By password = By.id("password");
     private By loginButton = By.id("login-button");
+
+    private By productsTitle = By.className("title");
     private By errorMessage = By.cssSelector("h3[data-test='error']");
+
+    // -------- Login Actions --------
+
     public void enterUsername(String user) {
         ActionUtil.type(username, user);
     }
@@ -20,10 +25,16 @@ public class LoginPage {
     public void clickLogin() {
         ActionUtil.click(loginButton);
     }
-  //@negative scenario
+
+    // -------- Validations --------
+
+    public boolean isLoginSuccessful() {
+        return ActionUtil.isDisplayed(productsTitle);
+    }
+
     public String getErrorMessage() {
-		return ActionUtil.getText(errorMessage);
-	}
+        return ActionUtil.getText(errorMessage);
+    }
 }
 
 

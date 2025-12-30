@@ -10,12 +10,20 @@ public class CheckoutPage {
     private By postalCode = By.id("postal-code");
     private By continueButton = By.id("continue");
     private By finishButton = By.id("finish");
-    private By confirmationHeader = By.className("complete-header");
 
+    private By confirmationHeader =
+            By.className("complete-header");
+
+    private By errorMessage =
+            By.cssSelector("h3[data-test='error']");
+
+    // ---------- POSITIVE FLOW ----------
     public void enterCheckoutDetails() {
+
         ActionUtil.type(firstName, "John");
         ActionUtil.type(lastName, "Doe");
         ActionUtil.type(postalCode, "12345");
+
         ActionUtil.click(continueButton);
     }
 
@@ -25,5 +33,14 @@ public class CheckoutPage {
 
     public boolean isOrderConfirmed() {
         return ActionUtil.isDisplayed(confirmationHeader);
+    }
+
+    // ---------- NEGATIVE FLOW ----------
+    public void continueWithoutDetails() {
+        ActionUtil.click(continueButton);
+    }
+
+    public String getCheckoutErrorMessage() {
+        return ActionUtil.getText(errorMessage);
     }
 }

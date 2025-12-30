@@ -10,132 +10,54 @@ import java.time.Duration;
 
 public class ActionUtil {
 
-    /*
-     * Timeout value is externalized in config.properties
-     * This avoids hardcoding and helps tune waits per environment
-     */
     private static final int TIMEOUT =
             Integer.parseInt(ConfigReader.getValue("timeout"));
 
-    /*
-     * Fetch WebDriver from DriverManager (ThreadLocal based)
-     * Ensures thread safety during parallel execution
-     */
     private static WebDriver driver() {
         return DriverManager.getDriver();
     }
 
-    /*
-     * Centralized Explicit Wait creator
-     * Explicit waits are preferred over Thread.sleep & Implicit wait
-     */
-    private static WebDriverWait getWait(int seconds) {
-        return new WebDriverWait(driver(), Duration.ofSeconds(seconds));
+    private static WebDriverWait getWait() {
+        return new WebDriverWait(driver(), Duration.ofSeconds(TIMEOUT));
     }
 
-    /*
-     * Wait until element becomes visible
-     */
-    private static void waitForVisible(By locator, int seconds) {
-        getWait(seconds)
-                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    // ---------- WAITS ----------
+    public static void waitForVisible(By locator) {
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    /*
-     * Wait until element becomes clickable
-     */
-    private static void waitForClickable(By locator, int seconds) {
-        getWait(seconds)
-                .until(ExpectedConditions.elementToBeClickable(locator));
+    public static void waitForClickable(By locator) {
+        getWait().until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    /*
-     * CLICK ACTION (MOST IMPORTANT)
-     * ------------------------------
-     * 1. Waits until element is clickable
-     * 2. Tries normal Selenium click
-     * 3. Falls back to JavaScript click if intercepted
-     *
-     * This design removes flaky click failures on dynamic sites
-     * like Booking.com (overlays, banners, animations).
-     */
-    public static void click(By locator) {
-        try {
-            waitForClickable(locator, TIMEOUT);
-            driver().findElement(locator).click();
-        } catch (Exception e) {
-            // JS fallback for intercepted / overlay issues
-            JavascriptExecutor js = (JavascriptExecutor) driver();
-            js.executeScript(
-                    "arguments[0].click();",
-                    driver().findElement(locator)
-            );
-        }
-    }
-
-    /*
-     * TYPE ACTION
-     * Clears existing value and sends new keys
-     */
+    // ---------- ACTIONS ----------
     public static void type(By locator, String value) {
-        waitForVisible(locator, TIMEOUT);
+        waitForVisible(locator);
         WebElement element = driver().findElement(locator);
         element.clear();
         element.sendKeys(value);
     }
 
-    /*
-     * GET TEXT ACTION
-     * Ensures element is visible before reading text
-     */
+    public static void click(By locator) {
+        waitForClickable(locator);
+        driver().findElement(locator).click();
+    }
+
+    public static boolean isDisplayed(By locator) {
+        try {
+            waitForVisible(locator);
+            return driver().findElement(locator).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public static String getText(By locator) {
-        waitForVisible(locator, TIMEOUT);
+        waitForVisible(locator);
         return driver().findElement(locator).getText();
     }
-
-    /*
-     * IS DISPLAYED CHECK
-     * Used for validations
-     */
-    public static boolean isDisplayed(By locator) {
-        waitForVisible(locator, TIMEOUT);
-        return driver().findElement(locator).isDisplayed();
-    }
-
-    /*
-     * Booking.com Genius popup (appears randomly)
-     */
-    private static final By geniusPopupClose =
-            By.xpath("//button[@aria-label='Dismiss sign-in info.']");
-
-    /*
-     * Safely handles optional popup
-     * Test will not fail if popup is absent
-     */
-    public static void handleGeniusPopupIfPresent() {
-        try {
-            if (driver().findElements(geniusPopupClose).size() > 0) {
-                driver().findElement(geniusPopupClose).click();
-            }
-        } catch (Exception ignored) {
-            // Popup may not appear – ignore safely
-        }
-    }
-
-    /*
-     * Switches control to newly opened browser tab
-     */
-    public static void switchToNewTab() {
-        String parentWindow = driver().getWindowHandle();
-
-        for (String window : driver().getWindowHandles()) {
-            if (!window.equals(parentWindow)) {
-                driver().switchTo().window(window);
-                break;
-            }
-        }
-    }
 }
+
 
 /*🎤 HOW TO EXPLAIN THIS IN INTERVIEW (1 LINE)
 

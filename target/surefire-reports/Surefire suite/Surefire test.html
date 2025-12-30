@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Surefire test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/3/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Dec 24 00:11:39 IST 2025</td>
+<td>Started on:</td><td>Tue Dec 30 23:22:06 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>14 seconds (14414 ms)</td>
+<tr><td>Total time:</td><td>40 seconds (40933 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,71 +76,100 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.framework.runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.framework.runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User should be able to complete checkout successfully", "SauceDemo Checkout Flow"</td>
-<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=143.0.7499.169)
+<td title='com.framework.runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.framework.runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User should see error when checkout details are missing", "SauceDemo Checkout Validation"</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.id: checkout (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.17&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c6830af2e31a468baf27aa5dd6bbc577, findElement {value=cart_item, using=class name}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.169, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60260}, goog:processID: 8728, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60260/devtoo..., se:cdpVersion: 143.0.7499.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c6830af2e31a468baf27aa5dd6bbc577
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at com.framework.action.ActionUtil.waitForVisible(ActionUtil.java:41)
-	at com.framework.action.ActionUtil.isDisplayed(ActionUtil.java:101)
-	at com.framework.pages.CartPage.isProductPresentInCart(CartPage.java:23)
-	at com.framework.steps.CheckoutSteps.user_navigates_to_cart(CheckoutSteps.java:25)
-	at ?.user navigates to cart(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoCheckout.feature:10)
-... Removed 5 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace838690266", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace838690266'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=143.0.7499.169)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51016}, goog:processID: 15420, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51016/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: af6db83693238be129dd797f50916be0
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.action.ActionUtil.waitForClickable(ActionUtil.java:30)
+	at com.framework.action.ActionUtil.click(ActionUtil.java:42)
+	at com.framework.pages.CartPage.clickCheckout(CartPage.java:19)
+	at com.framework.steps.CheckoutSteps.user_proceeds_to_checkout(CheckoutSteps.java:37)
+	at ?.user proceeds to checkout(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoCheckoutValidation.feature:11)
+</pre></div><a href='#' onClick='toggleBox("stack-trace276970866", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace276970866'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.id: checkout (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.17&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c6830af2e31a468baf27aa5dd6bbc577, findElement {value=cart_item, using=class name}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.169, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60260}, goog:processID: 8728, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60260/devtoo..., se:cdpVersion: 143.0.7499.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c6830af2e31a468baf27aa5dd6bbc577
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at com.framework.action.ActionUtil.waitForVisible(ActionUtil.java:41)
-	at com.framework.action.ActionUtil.isDisplayed(ActionUtil.java:101)
-	at com.framework.pages.CartPage.isProductPresentInCart(CartPage.java:23)
-	at com.framework.steps.CheckoutSteps.user_navigates_to_cart(CheckoutSteps.java:25)
-	at ?.user navigates to cart(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoCheckout.feature:10)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51016}, goog:processID: 15420, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51016/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: af6db83693238be129dd797f50916be0
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.action.ActionUtil.waitForClickable(ActionUtil.java:30)
+	at com.framework.action.ActionUtil.click(ActionUtil.java:42)
+	at com.framework.pages.CartPage.clickCheckout(CartPage.java:19)
+	at com.framework.steps.CheckoutSteps.user_proceeds_to_checkout(CheckoutSteps.java:37)
+	at ?.user proceeds to checkout(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoCheckoutValidation.feature:11)
 </pre></div></td>
-<td>13</td>
+<td>12</td>
+<td>com.framework.runners.TestRunner@76908cc0</td></tr>
+<tr>
+<td title='com.framework.runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.framework.runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User should see error when checkout details are missing", "SauceDemo Checkout Validation"</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.id: checkout (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.17&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63828}, goog:processID: 11576, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63828/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c638cfdadd68690e38d6aa2044e0bb4f
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.action.ActionUtil.waitForClickable(ActionUtil.java:30)
+	at com.framework.action.ActionUtil.click(ActionUtil.java:42)
+	at com.framework.pages.CartPage.clickCheckout(CartPage.java:19)
+	at com.framework.steps.CheckoutSteps.user_proceeds_to_checkout(CheckoutSteps.java:37)
+	at ?.user proceeds to checkout(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoLogin.feature:11)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1088628578", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1088628578'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.id: checkout (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.17&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63828}, goog:processID: 11576, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63828/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c638cfdadd68690e38d6aa2044e0bb4f
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.action.ActionUtil.waitForClickable(ActionUtil.java:30)
+	at com.framework.action.ActionUtil.click(ActionUtil.java:42)
+	at com.framework.pages.CartPage.clickCheckout(CartPage.java:19)
+	at com.framework.steps.CheckoutSteps.user_proceeds_to_checkout(CheckoutSteps.java:37)
+	at ?.user proceeds to checkout(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoLogin.feature:11)
+</pre></div></td>
+<td>12</td>
+<td>com.framework.runners.TestRunner@76908cc0</td></tr>
+<tr>
+<td title='com.framework.runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.framework.runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User should be able to complete checkout successfully", "SauceDemo Checkout Flow"</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.id: checkout (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.17&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61910}, goog:processID: 11480, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61910/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 44b97850c71ed2888ee8570083a95601
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.action.ActionUtil.waitForClickable(ActionUtil.java:30)
+	at com.framework.action.ActionUtil.click(ActionUtil.java:42)
+	at com.framework.pages.CartPage.clickCheckout(CartPage.java:19)
+	at com.framework.steps.CheckoutSteps.user_proceeds_to_checkout(CheckoutSteps.java:37)
+	at ?.user proceeds to checkout(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoCheckout.feature:11)
+</pre></div><a href='#' onClick='toggleBox("stack-trace233271858", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace233271858'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.id: checkout (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.17&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\SHABIN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61910}, goog:processID: 11480, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61910/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 44b97850c71ed2888ee8570083a95601
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.action.ActionUtil.waitForClickable(ActionUtil.java:30)
+	at com.framework.action.ActionUtil.click(ActionUtil.java:42)
+	at com.framework.pages.CartPage.clickCheckout(CartPage.java:19)
+	at com.framework.steps.CheckoutSteps.user_proceeds_to_checkout(CheckoutSteps.java:37)
+	at ?.user proceeds to checkout(file:///D:/Software/Automation/WebAutomation/bdd-web-automation/src/test/resources/features/SauceDemoCheckout.feature:11)
+</pre></div></td>
+<td>14</td>
 <td>com.framework.runners.TestRunner@76908cc0</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -152,14 +181,9 @@ Session ID: c6830af2e31a468baf27aa5dd6bbc577
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.framework.runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.framework.runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Valid user should login successfully", "SauceDemo Login"</td>
+<td title='com.framework.runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.framework.runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Simple smoke scenario", "Smoke Check"</td>
 <td></td>
-<td>5</td>
-<td>com.framework.runners.TestRunner@76908cc0</td></tr>
-<tr>
-<td title='com.framework.runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.framework.runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Invalid user should see the error message", "SauceDemo Login"</td>
-<td></td>
-<td>5</td>
+<td>1</td>
 <td>com.framework.runners.TestRunner@76908cc0</td></tr>
 </table><p>
 </body>

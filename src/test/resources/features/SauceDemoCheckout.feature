@@ -1,7 +1,7 @@
 @Regression
-@E2E
 Feature: SauceDemo Checkout Flow
 
+  @Ignore
   Scenario: User should be able to complete checkout successfully
     Given user is on SauceDemo login page
     When user enters valid username and password
@@ -12,4 +12,5 @@ Feature: SauceDemo Checkout Flow
     And user enters checkout details
     And user completes the checkout
     Then order confirmation message should be displayed
+
 

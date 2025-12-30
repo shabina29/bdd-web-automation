@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Dec 24 00:29:59 IST 2025</td>
+<td>Started on:</td><td>Tue Dec 30 21:26:33 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>5 seconds (5506 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (498 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -77,8 +77,17 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.framework.runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.framework.runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User should be able to complete checkout successfully", "SauceDemo Checkout Flow"</td>
-<td></td>
-<td>5</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method initDriver() in the type DriverManager is not applicable for the arguments (String)
+
+	at com.framework.base.Hooks.setUp(Hooks.java:39)
+</pre></div><a href='#' onClick='toggleBox("stack-trace288919635", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace288919635'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method initDriver() in the type DriverManager is not applicable for the arguments (String)
+
+	at com.framework.base.Hooks.setUp(Hooks.java:39)
+</pre></div></td>
+<td>0</td>
 <td>com.framework.runners.TestRunner@3eb738bb</td></tr>
 </table><p>
 </body>

@@ -16,11 +16,20 @@ public class CheckoutSteps {
     @And("user adds a product to the cart")
     public void user_adds_a_product_to_the_cart() {
         productsPage.addProductToCart();
-    }
 
+        Assert.assertTrue(
+                productsPage.isProductAddedToCart(),
+                "Product was NOT added to cart"
+        );
+    }
     @And("user navigates to cart")
     public void user_navigates_to_cart() {
         productsPage.goToCart();
+
+        Assert.assertTrue(
+                cartPage.isProductPresentInCart(),
+                "Product not found in cart"
+        );
     }
 
     @And("user proceeds to checkout")
@@ -43,6 +52,22 @@ public class CheckoutSteps {
         Assert.assertTrue(
                 checkoutPage.isOrderConfirmed(),
                 "Order confirmation message not displayed"
+        );
+    }
+
+    // -------- Negative Flow --------
+
+    @And("user continues checkout without entering details")
+    public void user_continues_checkout_without_entering_details() {
+        checkoutPage.continueWithoutDetails();
+    }
+
+    @Then("error message should be displayed on checkout page")
+    public void error_message_should_be_displayed_on_checkout_page() {
+        Assert.assertEquals(
+                checkoutPage.getCheckoutErrorMessage(),
+                "Error: First Name is required",
+                "Checkout validation error message mismatch"
         );
     }
 }

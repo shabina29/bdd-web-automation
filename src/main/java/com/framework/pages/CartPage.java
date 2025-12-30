@@ -5,16 +5,22 @@ import org.openqa.selenium.By;
 
 public class CartPage {
 
-    // Cart page unique elements
-    private By cartTitle = By.className("title");   // "Your Cart"
     private By checkoutButton = By.id("checkout");
 
-    public void waitForCartPage() {
-        ActionUtil.isDisplayed(cartTitle);
+    // 🔥 Correct cart item locator
+    private By cartItemName =
+            By.className("inventory_item_name");
+
+    public boolean isProductPresentInCart() {
+        return ActionUtil.isDisplayed(cartItemName);
     }
 
     public void clickCheckout() {
-        waitForCartPage();              // ✅ wait for cart page to load
         ActionUtil.click(checkoutButton);
     }
 }
+
+
+
+
+
