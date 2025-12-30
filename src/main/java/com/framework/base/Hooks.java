@@ -1,70 +1,54 @@
-package com.framework.base;
+package com.framework.manager;
 
-import com.framework.manager.DriverManager;
-import com.framework.utils.ConfigReader;
-import com.framework.utils.ExtentTestManager;
-import com.framework.utils.ScreenshotUtil;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+public class DriverManager {
 
-/**
- * Hooks.java
- * ----------
- * Purpose:
- * Controls the complete test lifecycle in Cucumber.
- *
- * @Before  → Browser + Report setup
- * @After   → Screenshot + Report update + Browser cleanup
- */
-public class Hooks {
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     /**
-     * Runs BEFORE every scenario
+     * Initialize WebDriver based on browser name
      */
-    @Before
-    public void setUp(Scenario scenario) {
+    public static void initDriver(String browser) {
 
-        // Create a test entry in Extent Report for this scenario
-        ExtentTestManager.createTest(scenario.getName());
+        if (driver.get() == null) {
 
-        // Read browser value from config.properties
-        String browser = ConfigReader.getValue("browser");
+            switch (browser.toLowerCase()) {
 
-        // 🧪 QUICK CONFIRMATION (TEMPORARY – FOR DEBUGGING)
-        System.out.println("BROWSER = " + browser);
+                case "chrome":
+                    driver.set(new ChromeDriver());
+                    break;
 
-        // Initialize WebDriver based on browser value
-        DriverManager.initDriver(browser);
+                case "edge":
+                    driver.set(new EdgeDriver());
+                    break;
 
-        // Launch application URL from config.properties
-        DriverManager.getDriver()
-                .get(ConfigReader.getValue("url"));
+                default:
+                    throw new RuntimeException(
+                            "Browser not supported: " + browser
+                    );
+            }
+
+            driver.get().manage().window().maximize();
+        }
     }
 
     /**
-     * Runs AFTER every scenario
+     * Get current WebDriver
      */
-    @After
-    public void tearDown(Scenario scenario) {
+    public static WebDriver getDriver() {
+        return driver.get();
+    }
 
-        // If scenario fails, capture screenshot and attach to report
-        if (scenario.isFailed()) {
-
-            String screenshotPath =
-                    ScreenshotUtil.takeScreenshot(scenario.getName());
-
-            ExtentTestManager.getTest()
-                    .fail("Scenario Failed")
-                    .addScreenCaptureFromPath(screenshotPath);
-
-        } else {
-            // Mark scenario as passed in Extent Report
-            ExtentTestManager.getTest().pass("Scenario Passed");
+    /**
+     * Quit browser and clean ThreadLocal
+     */
+    public static void quitDriver() {
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.remove();
         }
-
-        // Quit browser and clean ThreadLocal driver
-        DriverManager.quitDriver();
     }
 }
