@@ -6,6 +6,26 @@ pipeline {
         jdk 'JDK-17'
     }
 
+parameters {
+    choice(
+        name: 'BROWSER',
+        choices: ['chrome', 'edge'],
+        description: 'Select browser to run tests'
+    )
+
+    choice(
+        name: 'TEST_TYPE',
+        choices: ['SMOKE', 'REGRESSION'],
+        description: 'Select test suite'
+    )
+
+    choice(
+        name: 'ENV',
+        choices: ['QA', 'STAGE', 'PROD'],
+        description: 'Select environment'
+    )
+}
+
     // ✅ Nightly regression trigger (1 AM daily)
     triggers {
         cron('H 1 * * *')
