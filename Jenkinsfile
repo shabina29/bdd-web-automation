@@ -2,46 +2,21 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven-3.9'
-        jdk 'JDK-17'
+        jdk 'JDK_17'
+        maven 'Maven_3'
     }
 
-parameters {
-    choice(
-        name: 'BROWSER',
-        choices: ['chrome', 'edge'],
-        description: 'Select browser to run tests'
-    )
-
-    choice(
-        name: 'TEST_TYPE',
-        choices: ['SMOKE', 'REGRESSION'],
-        description: 'Select test suite'
-    )
-
-    choice(
-        name: 'ENV',
-        choices: ['QA', 'STAGE', 'PROD'],
-        description: 'Select environment'
-    )
-}
-
-    // ✅ Nightly regression trigger (1 AM daily)
-    triggers {
-        cron('H 1 * * *')
-    }
-
-    // ✅ Parameters (used in email + future control)
     parameters {
         choice(
             name: 'ENV',
             choices: ['QA', 'STAGE', 'PROD'],
             description: 'Select environment'
         )
+
         choice(
             name: 'TEST_TYPE',
-            choices: ['REGRESSION'],
-            description: 'Nightly regression execution'
+            choices: ['SMOKE', 'REGRESSION'],
+            description: 'Select test type'
         )
     }
 
@@ -56,65 +31,29 @@ parameters {
 
         stage('Build & Run Tests') {
             steps {
-                echo 'Running Maven tests'
-                bat 'mvn clean test'
+                echo "Environment: ${params.ENV}"
+                echo "Test Type: ${params.TEST_TYPE}"
+
+                script {
+                    if (params.TEST_TYPE == 'SMOKE') {
+                        bat "mvn clean test -Dcucumber.filter.tags=@Smoke -Denv=${params.ENV}"
+                    } else {
+                        bat "mvn clean test -Dcucumber.filter.tags=@Regression -Denv=${params.ENV}"
+                    }
+                }
             }
         }
     }
 
-    // ✅ Email notifications
     post {
-
+        always {
+            echo 'Pipeline execution completed'
+        }
         success {
-            emailext(
-                subject: "✅ Jenkins SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """
-Build SUCCESS
-
-Job Name: ${env.JOB_NAME}
-Build Number: ${env.BUILD_NUMBER}
-Environment: ${params.ENV}
-Test Type: ${params.TEST_TYPE}
-
-Build URL:
-${env.BUILD_URL}
-""",
-                to: "qa-team@company.com"
-            )
+            echo 'Automation executed successfully'
         }
-
-        unstable {
-            emailext(
-                subject: "⚠ Jenkins UNSTABLE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """
-Build UNSTABLE (Test Failures)
-
-Job Name: ${env.JOB_NAME}
-Build Number: ${env.BUILD_NUMBER}
-Environment: ${params.ENV}
-Test Type: ${params.TEST_TYPE}
-
-Check details:
-${env.BUILD_URL}
-""",
-                to: "qa-team@company.com"
-            )
-        }
-
         failure {
-            emailext(
-                subject: "❌ Jenkins FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """
-Build FAILED
-
-Job Name: ${env.JOB_NAME}
-Build Number: ${env.BUILD_NUMBER}
-
-Immediate attention required:
-${env.BUILD_URL}
-""",
-                to: "qa-team@company.com"
-            )
+            echo 'Automation execution failed'
         }
     }
 }
