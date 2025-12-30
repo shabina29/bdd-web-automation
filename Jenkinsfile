@@ -24,30 +24,24 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            echo 'Pipeline execution completed'
+ post {
+    always {
+        echo 'Pipeline execution completed'
 
-            // ✅ Publish TestNG / Surefire reports
-            junit 'target/surefire-reports/*.xml'
+        // Publish TestNG results
+        junit 'target/surefire-reports/*.xml'
 
-            // ✅ Publish Cucumber HTML report
-            publishHTML(target: [
-                allowMissing: true,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'target/cucumber-reports',
-                reportFiles: 'index.html',
-                reportName: 'Cucumber BDD Report'
-            ])
-        }
-
-        success {
-            echo 'BDD automation pipeline SUCCESS'
-        }
-
-        failure {
-            echo 'BDD automation pipeline FAILED'
-        }
+        // Archive Cucumber HTML report
+        archiveArtifacts artifacts: 'target/cucumber-reports/**', fingerprint: true
     }
+
+    success {
+        echo 'BDD automation pipeline SUCCESS'
+    }
+
+    failure {
+        echo 'BDD automation pipeline FAILED'
+    }
+}
+
 }
